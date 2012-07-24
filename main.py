@@ -1,6 +1,7 @@
 import webapp2
 from handlers.web import IndexHandler, TopicHandler
 
+""" =) """
 
 class HelloWorldHandler(webapp2.RequestHandler):
     def get(self):
