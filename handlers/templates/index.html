@@ -7,6 +7,7 @@
 {% for topic in topics %}
     <div><a href="topic/{{ topic.key().id() }}">{{ topic.name|e }}</a></div>
 {% endfor %}
+<a href="{{ next_url }}">other topics</a>
 <form method="post">
     <input type="text" name="name"/>
     <input type="submit" value="Add Topic"/>

@@ -9,10 +9,14 @@ jinja_environment = jinja2.Environment(
 
 class IndexHandler(webapp2.RequestHandler):
     def get(self):
+        try:
+            offset = int(self.request.get('o'))
+        except:
+            offset = 0
         template = jinja_environment.get_template('templates/index.html')
-        topics = Topic.all()
-
-        self.response.out.write(template.render({"topics": topics}))
+        topics = Topic.all().fetch(5,offset)
+        next_url = self.request.url.split('?')[0]+'?o='+str(offset+5)
+        self.response.out.write(template.render({"topics": topics,"next_url":next_url}))
 
     def post(self):
         name = self.request.get('name')
