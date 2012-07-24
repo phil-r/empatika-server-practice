@@ -40,7 +40,7 @@ class TopicHandler(webapp2.RequestHandler):
         text = self.request.get('text')
         if topic and text:
             Comment(text=text,topic=topic).put()
-            self.get()
+            self.get(topicid)
         else:
             self.response.out.write('no text or invalid topic id :(')
 
