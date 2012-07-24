@@ -14,8 +14,11 @@ class IndexHandler(webapp2.RequestHandler):
         except:
             offset = 0
         template = jinja_environment.get_template('templates/index.html')
-        topics = Topic.all().fetch(5,offset)
-        next_url = self.request.url.split('?')[0]+'?o='+str(offset+5)
+        topics = Topic.all().order('-created_at').fetch(5,offset)
+        if len(topics) ==5:
+            next_url = self.request.url.split('?')[0]+'?o='+str(offset+5)
+        else:
+            next_url = ''
         self.response.out.write(template.render({"topics": topics,"next_url":next_url}))
 
     def post(self):
