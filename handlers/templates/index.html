@@ -5,10 +5,10 @@
 </head>
 <body>
 {% for topic in topics %}
-    <div>{{ topic.name }}</div>
+    <div><a href="topic/{{ topic.key().id() }}">{{ topic.name|e }}</a></div>
 {% endfor %}
 <form method="post">
-    <input type="text" name="name" />
+    <input type="text" name="name"/>
     <input type="submit" value="Add Topic"/>
 </form>
 </body>

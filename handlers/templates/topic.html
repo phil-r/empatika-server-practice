@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <title>index</title>
+</head>
+<body>
+<h1>{{ topic.name|e }}</h1>
+{% for comment in comments %}
+    <div> {{ comment.text }} </div>
+{% endfor %}
+<form method="post">
+    <textarea name="text"></textarea><br/>
+    <input type="submit" value="Add comment"/>
+</form>
+</body>
+</html>
