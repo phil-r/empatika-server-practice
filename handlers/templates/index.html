@@ -4,6 +4,12 @@
     <title>index</title>
 </head>
 <body>
-{{ hello }}
+{% for topic in topics %}
+    <div>{{ topic.name }}</div>
+{% endfor %}
+<form method="post">
+    <input type="text" name="name" />
+    <input type="submit" value="Add Topic"/>
+</form>
 </body>
 </html>
