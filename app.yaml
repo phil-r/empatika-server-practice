@@ -7,3 +7,11 @@ threadsafe: true
 handlers:
 - url: /.*
   script: main.app
+
+libraries:
+- name: jinja2
+  version: latest
+
+- name: markupsafe
+  version: latest
+

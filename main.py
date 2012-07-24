@@ -1,11 +1,11 @@
-from google.appengine.ext import webapp
+import webapp2
+from handlers.web import IndexHandler
 
 
-class MainHandler(webapp.RequestHandler):
+class HelloWorldHandler(webapp2.RequestHandler):
     def get(self):
         self.response.out.write('Hello world!')
 
-
-app = webapp.WSGIApplication([('/', MainHandler)],
-                             debug=True)
+app = webapp2.WSGIApplication([('/', IndexHandler)],
+    debug=True)
 
